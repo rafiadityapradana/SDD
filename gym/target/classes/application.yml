@@ -1,0 +1,30 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: customer
+  datasource:
+    password: root
+    url: jdbc:postgresql://localhost:5432/GYM
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: 41c18d75d17209
+    password: 7a0021c5f69bfd
+  kafka:
+    bootstrap-servers: localhost:29092
+    group-id: NOTIF_ID
+  #   producer:
+  #     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #     value-serializer: org.apache.kafka.common.serialization.StringSerializer
+app:
+  jwtSecret: 4582d3cbd73e4ce08fd9b5d44f1a0bf62274bdc116864aeb89a122d3638ee326
