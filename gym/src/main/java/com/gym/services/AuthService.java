@@ -82,6 +82,8 @@ public class AuthService {
 
           RegisterRespone registerRespone = new RegisterRespone();
           try {
+               String accessToken = jwtTokenProvider.generateToken("dfsdffs", 520000);
+               System.out.println("accessToken "+accessToken);
                String otp = otpUtil.generatedOtp();     
                CustomerEntity customerEntity = new CustomerEntity();
                CreditCartEntity creditCartEntity = new CreditCartEntity();

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
+import com.gym.configs.JwtTokenProvider;
 import com.gym.models.request.*;
 import com.gym.services.AuthService;
 
@@ -17,8 +17,14 @@ public class AuthController {
      @Autowired
      private AuthService authService;
 
+     @Autowired
+     JwtTokenProvider jwtTokenProvider;
+     
+
      @PostMapping("/register")
      public ResponseEntity<Object> registerController(@Valid @RequestBody RegisterRequest registerRequest) throws Exception {
+          String accessToken = jwtTokenProvider.generateToken("dfsdffs", 520000);
+               System.out.println("accessToken "+accessToken);
           return authService.registerService(registerRequest);
      }
      @PostMapping("/verify-account")
